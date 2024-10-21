@@ -22,8 +22,8 @@ import main.io.GetColorDialog;
 import main.states.GameOverState;
 
 /**
- * classe représentant le jeu, elle est responsable du déroulement du jeu suivie
- * du sens du jeu, de l'activation des effets spéciales, ...
+ * classe reprÃ©sentant le jeu, elle est responsable du dÃ©roulement du jeu suivie
+ * du sens du jeu, de l'activation des effets spÃ©ciales, ...
  * 
  * @author Stoufa
  *
@@ -38,7 +38,7 @@ public class Jeu {
      */
     private Talon                talon;
     /**
-     * le nombre de joueurs ( doit être entre 2 et 4 )
+     * le nombre de joueurs ( doit Ãªtre entre 2 et 4 )
      */
     private int                  nbJoueurs;
     /**
@@ -46,16 +46,16 @@ public class Jeu {
      */
     private Joueur[]             joueurs;
     /**
-     * le sens du jeu, peut avoir deux valeurs possibles : -1 de droite à
-     * gauche, 1 de gauche à droite [0] + (1) -> [1] ... [1] + (-1) -> [0] ...
+     * le sens du jeu, peut avoir deux valeurs possibles : -1 de droite Ã 
+     * gauche, 1 de gauche Ã  droite [0] + (1) -> [1] ... [1] + (-1) -> [0] ...
      */
-    private int                  sens  = -1;                 // par défaut à gauche
+    private int                  sens  = -1;                 // par dÃ©faut Ã  gauche
     /**
      * l'indice du joueur courant, initialement le premier
      */
     static int                   tour  = 0;
     /**
-     * l'objet Joueur à l'indice indiceJoueurCourant du tableau joueurs
+     * l'objet Joueur Ã  l'indice indiceJoueurCourant du tableau joueurs
      */
     public static Joueur         joueurCourant;
     /**
@@ -64,11 +64,11 @@ public class Jeu {
     //public static int tour = 1;
     static Input                 input = null;
     /**
-     * utilisé pour arrêter le jeu jusqu'a ce que le joueur clique sur une carte !
+     * utilisÃ© pour arrÃªter le jeu jusqu'a ce que le joueur clique sur une carte !
      */
     static CountDownLatch        countDownLatch;
     /**
-     * utilisé pour attendre la couleur choisie par le joueur
+     * utilisÃ© pour attendre la couleur choisie par le joueur
      */
     public static CountDownLatch waitForDialogCountDownLatch;
     //	public static boolean clickReceived;
@@ -93,7 +93,7 @@ public class Jeu {
     }
 
     /**
-     * permet de démarrer le jeu
+     * permet de dÃ©marrer le jeu
      * @param sbg 
      * @throws InterruptedException 
      * @throws UnsupportedLookAndFeelException 
@@ -107,15 +107,15 @@ public class Jeu {
             InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, SlickException {
         Audio.playMusic();
         System.out.println( "=== Le jeu commence ===" );
-        boolean effetSpecial = false; // cette variable permet de boucler à l'infini dans le cas des cartes spéciales
+        boolean effetSpecial = false; // cette variable permet de boucler Ã  l'infini dans le cas des cartes spÃ©ciales
         while ( true ) { // boucle du jeu
             joueurCourant = joueurs[tour];
             System.out.println( "Tour de " + joueurCourant.pseudo );
             // effetSpecial : pour qu'on n'active pas l'effet plus qu'une fois !
-            // par exemple : 2 joueurs le premier joue une carte spéciale, l'autre n'a pas de
-            // cartes jouables, donc, il passe son tour, là, on ne doit pas réactiver l'effet spéciale
+            // par exemple : 2 joueurs le premier joue une carte spÃ©ciale, l'autre n'a pas de
+            // cartes jouables, donc, il passe son tour, lÃ , on ne doit pas rÃ©activer l'effet spÃ©ciale
             // de la carte au sommet du talon
-            if ( effetSpecial && talon.sommet() instanceof CarteSpecial ) { // le joueur précédant a joué une carte spéciale
+            if ( effetSpecial && talon.sommet() instanceof CarteSpecial ) { // le joueur prÃ©cÃ©dant a jouÃ© une carte spÃ©ciale
                 effetSpecial = false;
                 if ( ( (CarteSpecial) talon.sommet() ).getSymbole() == Symbole.PASSER ) { // le joueur courant doit passer son tour
                     System.out.println( joueurCourant.pseudo + " doit passer son tour -> effet de la carte : "
@@ -124,7 +124,7 @@ public class Jeu {
                     joueurSuivant();
                     continue;
                 }
-                if ( ( (CarteSpecial) talon.sommet() ).getSymbole() == Symbole.PLUS2 ) { // le joueur précédant a joué +2
+                if ( ( (CarteSpecial) talon.sommet() ).getSymbole() == Symbole.PLUS2 ) { // le joueur prÃ©cÃ©dant a jouÃ© +2
                     // le joueur courant doit piocher 2 cartes
                     System.out.println( joueurCourant.pseudo
                             + " doit piocher 2 cartes et passer son tour -> effet de la carte " + talon.sommet() );
@@ -136,7 +136,7 @@ public class Jeu {
                     joueurSuivant();
                     continue;
                 }
-                if ( ( (CarteSpecial) talon.sommet() ).getSymbole() == Symbole.PLUS4 ) { // le joueur précédant a joué +4
+                if ( ( (CarteSpecial) talon.sommet() ).getSymbole() == Symbole.PLUS4 ) { // le joueur prÃ©cÃ©dant a jouÃ© +4
                     // le joueur courant doit piocher 4 cartes
                     System.out.println( joueurCourant.pseudo
                             + " doit piocher 4 cartes et passer son tour -> effet de la carte " + talon.sommet() );
@@ -151,11 +151,11 @@ public class Jeu {
             }
             joueurCourant.jouerTour();
             Debug.log( "======== Fin du Tour ========" );
-            // TODO : on doit mettre à jour les cartes des mains des joueurs aprés chaque tour ! ( jouabilité ! )
+            // TODO : on doit mettre Ã  jour les cartes des mains des joueurs aprÃ©s chaque tour ! ( jouabilitÃ© ! )
             updatePlayersHands();
 
-            if ( joueurCourant.nbCartes() == 0 ) { // on teste si le joueur courant a vidé sa main
-                System.out.println( joueurCourant.pseudo + " a gagné !" );
+            if ( joueurCourant.nbCartes() == 0 ) { // on teste si le joueur courant a vidÃ© sa main
+                System.out.println( joueurCourant.pseudo + " a gagnÃ© !" );
                 Audio.playSound( "winSound" );
                 break;
             }
@@ -163,19 +163,19 @@ public class Jeu {
                 System.out.println( joueurCourant.pseudo + " <UNO!>" );
                 Audio.playSound( "unoSound" );
             }
-            // On doit tester ici si le joueur a des doublons de la carte jouée TODO
-            // On doit tester la carte inverser à ce niveau
-            if ( joueurCourant.playedCard != null && talon.sommet() instanceof CarteSpecial ) { // le joueur courant a joué une carte spéciale
-                // le test sur la carte jouée pour ne pas inverser le sens encore une fois dans le cas ou 
-                // un joueur à inversé le sens et le joueur suivant n'a pas de cartes jouables ! sans ce 
-                // test le sens va être inversé encore une fois !
-                effetSpecial = true; // activer l'effet spécial
+            // On doit tester ici si le joueur a des doublons de la carte jouÃ©e TODO
+            // On doit tester la carte inverser Ã  ce niveau
+            if ( joueurCourant.playedCard != null && talon.sommet() instanceof CarteSpecial ) { // le joueur courant a jouÃ© une carte spÃ©ciale
+                // le test sur la carte jouÃ©e pour ne pas inverser le sens encore une fois dans le cas ou 
+                // un joueur Ã  inversÃ© le sens et le joueur suivant n'a pas de cartes jouables ! sans ce 
+                // test le sens va Ãªtre inversÃ© encore une fois !
+                effetSpecial = true; // activer l'effet spÃ©cial
                 if ( ( (CarteSpecial) talon.sommet() ).getSymbole() == Symbole.INVERSER ) {
-                    // le joueur courant à inversé le sens
-                    System.out.println( joueurCourant.pseudo + " a inversé le sens du jeu" );
+                    // le joueur courant Ã  inversÃ© le sens
+                    System.out.println( joueurCourant.pseudo + " a inversÃ© le sens du jeu" );
                     Audio.playSound( "reverseSound" );
                     sens *= -1; // la valeur de sens est soit 1 soit -1, on multiplie par -1 pour changer
-                    effetSpecial = false; // l'effet spécial est activé dans ce cas
+                    effetSpecial = false; // l'effet spÃ©cial est activÃ© dans ce cas
                 }
             }
             joueurSuivant();
@@ -188,13 +188,13 @@ public class Jeu {
     }
 
     /**
-     * mise à jour de la jouabilité des cartes des joueurs
+     * mise Ã  jour de la jouabilitÃ© des cartes des joueurs
     * @param joueurCourant 
      */
     private void updatePlayersHands() {
         for ( Joueur joueur : joueurs ) { // Pour chaque joueur ...
             for ( Carte carte : joueur.main.cartes ) { // On parcourt ses cartes ...
-                // Et on les met à jour ( jouabilité avec la carte du sommet du talon )
+                // Et on les met Ã  jour ( jouabilitÃ© avec la carte du sommet du talon )
                 carte.jouable = carte.compatible( talon.sommet() );
             }
         }
@@ -206,7 +206,7 @@ public class Jeu {
     private void joueurSuivant() {
         // avancer vers le joueur suivant
         tour += sens;
-        // On doit vérifier si l'indice a dépasser les bornes du tableau
+        // On doit vÃ©rifier si l'indice a dÃ©passer les bornes du tableau
         if ( tour < 0 ) {
             tour += nbJoueurs;
             // exemple : 3 joueurs -> [ 0 , 1 , 2 ]
@@ -221,13 +221,13 @@ public class Jeu {
 
     public void update( GameContainer container ) throws SlickException {
         input = container.getInput();
-        for ( int i = 0; i < joueurs.length; i++ ) { // mettre à jour l'état des joueurs
+        for ( int i = 0; i < joueurs.length; i++ ) { // mettre Ã  jour l'Ã©tat des joueurs
             joueurs[i].update( container );
         }
     }
 
     /**
-     * permet d'afficher les mises à jour sur le jeu
+     * permet d'afficher les mises Ã  jour sur le jeu
      * 
      * @param g
      * @throws SlickException
@@ -246,7 +246,7 @@ public class Jeu {
     public static void changeBackgroundColorTo( Couleur couleur ) throws SlickException {
         Image bgImage = Sprite.getBackground( couleur );
         if ( bgImage == null ) {
-            Debug.err( "derniére carte jouée noire ?" );
+            Debug.err( "derniÃ©re carte jouÃ©e noire ?" );
             return;
         }
         bgImage.draw( 0, 0, Game.WIDTH, Game.HEIGHT );

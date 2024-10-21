@@ -95,7 +95,7 @@ public class ClientConfigWindow extends JDialog {
 
                     btnEnregistrerConfig.setBackground( Color.blue );
                     btnEnregistrerConfig.setForeground( Color.blue );
-                    btnEnregistrerConfig.setText( " == Enregistré == " );
+                    btnEnregistrerConfig.setText( " == EnregistrÃ© == " );
 
                     // After 2 seconds, change it back
                     Timer timer = new Timer( 2000, new ActionListener() {

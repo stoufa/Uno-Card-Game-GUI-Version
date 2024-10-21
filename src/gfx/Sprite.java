@@ -11,15 +11,15 @@ import main.gameObjects.Couleur;
 import main.gameObjects.Symbole;
 
 /**
- * classe utilisée pour charger et retourner les sprites / images du jeu
+ * classe utilisÃ©e pour charger et retourner les sprites / images du jeu
  * @author Stoufa
  *
  */
 public class Sprite {
     /**
-     * inactive : la sprite / image grise transparente à ajouter au dessus des cartes non jouables !
-     * hidden : la sprite / image de la carte cachée
-     * séparés de la liste des sprites, car elles sont les plus utilisées ( optimisation )
+     * inactive : la sprite / image grise transparente Ã  ajouter au dessus des cartes non jouables !
+     * hidden : la sprite / image de la carte cachÃ©e
+     * sÃ©parÃ©s de la liste des sprites, car elles sont les plus utilisÃ©es ( optimisation )
      */
     //public static Image inactive = null, hidden = null;
     /**
@@ -28,9 +28,9 @@ public class Sprite {
     public static HashMap<String, Image> sprites = new HashMap<>();
 
     /**
-     * retourne la sprite de la carte ayant le symbole passé en paramétre
+     * retourne la sprite de la carte ayant le symbole passÃ© en paramÃ©tre
      * @param symbole	symbole de la carte dont on veut afficher
-     * @return	l'image de la carte demandée
+     * @return	l'image de la carte demandÃ©e
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     public static Image get( Symbole symbole ) throws SlickException { // +4, Joker
@@ -47,9 +47,9 @@ public class Sprite {
     }
 
     /**
-     * retourne la sprite de la carte ayant le nom passé en paramétre
+     * retourne la sprite de la carte ayant le nom passÃ© en paramÃ©tre
      * @param spriteName nom de la carte dont on veut afficher
-     * @return	l'image de la carte demandée
+     * @return	l'image de la carte demandÃ©e
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     private static Image get( String spriteName ) throws SlickException {
@@ -59,10 +59,10 @@ public class Sprite {
     }
 
     /**
-     * retourne la sprite de la carte ayant le symbole et la couleur passés en paramétres
+     * retourne la sprite de la carte ayant le symbole et la couleur passÃ©s en paramÃ©tres
      * @param symbole	symbole de la carte dont on veut afficher
      * @param couleur	couleur de la carte dont on veut afficher
-     * @return	l'image de la carte demandée
+     * @return	l'image de la carte demandÃ©e
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     public static Image get( Symbole symbole, Couleur couleur ) throws SlickException { // exemple : passer-rouge
@@ -102,10 +102,10 @@ public class Sprite {
     }
 
     /**
-     * retourne la sprite de la carte ayant la valeur et la couleur passés en paramétres
+     * retourne la sprite de la carte ayant la valeur et la couleur passÃ©s en paramÃ©tres
      * @param valeur	valeur de la carte dont on veut afficher
      * @param couleur	couleur de la carte dont on veut afficher
-     * @return	l'image de la carte demandée
+     * @return	l'image de la carte demandÃ©e
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     public static Image get( int valeur, Couleur couleur ) throws SlickException { // exemple : 0-bleu
@@ -131,8 +131,8 @@ public class Sprite {
     }
 
     /**
-     * retourne la sprite / image grise transparente à ajouter au dessus des cartes non jouables !
-     * @return	la sprite / image grise transparente à ajouter au dessus des cartes non jouables !
+     * retourne la sprite / image grise transparente Ã  ajouter au dessus des cartes non jouables !
+     * @return	la sprite / image grise transparente Ã  ajouter au dessus des cartes non jouables !
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     public static Image getInactiveCard() throws SlickException {
@@ -142,8 +142,8 @@ public class Sprite {
     }
 
     /**
-     * retourne la sprite / image de la carte cachée
-     * @return	la sprite / image de la carte cachée
+     * retourne la sprite / image de la carte cachÃ©e
+     * @return	la sprite / image de la carte cachÃ©e
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     public static Image getHiddenCard() throws SlickException {
@@ -153,9 +153,9 @@ public class Sprite {
     }
 
     /**
-     * retourne la sprite / image de l'arriére-plan du jeu ( selon la couleur passée en paramétre )
-     * @param couleur	la couleur de l'arriére-plan
-     * @return	la sprite / image de l'arriére-plan du jeu ( selon la couleur passée en paramétre )
+     * retourne la sprite / image de l'arriÃ©re-plan du jeu ( selon la couleur passÃ©e en paramÃ©tre )
+     * @param couleur	la couleur de l'arriÃ©re-plan
+     * @return	la sprite / image de l'arriÃ©re-plan du jeu ( selon la couleur passÃ©e en paramÃ©tre )
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
     public static Image getBackground( Couleur couleur ) throws SlickException {
@@ -181,8 +181,8 @@ public class Sprite {
     }
 
     /**
-     * cette méthode permet de charger toutes les images du jeu
-     * N.B. : TOUTES les images / sprites DOIVENT être chargés à partir du Thread principale ( GL Thread )
+     * cette mÃ©thode permet de charger toutes les images du jeu
+     * N.B. : TOUTES les images / sprites DOIVENT Ãªtre chargÃ©s Ã  partir du Thread principale ( GL Thread )
      * sinon on va avoir l'exception suivante : java.lang.RuntimeException: No OpenGL context found in the current thread.
      * @throws SlickException	exception offerte par la librairie Slick2D
      */
@@ -204,7 +204,7 @@ public class Sprite {
             // cartes inverser
             imageFileName = String.format( "reverse-%s", colorName );
             sprites.put( imageFileName, new Image( Config.get( "imgPath" ) + imageFileName + ".png" ) );
-            // sprites / images de l'arriére-plan
+            // sprites / images de l'arriÃ©re-plan
             imageFileName = String.format( "bg-%s", colorName );
             sprites.put( imageFileName, new Image( Config.get( "imgPath" ) + imageFileName + ".png" ) );
         }
@@ -214,7 +214,7 @@ public class Sprite {
         // cartes +4
         imageFileName = "+4";
         sprites.put( imageFileName, new Image( Config.get( "imgPath" ) + imageFileName + ".png" ) );
-        // carte cachée ( le dos d'une carte )
+        // carte cachÃ©e ( le dos d'une carte )
         imageFileName = "hidden";
         sprites.put( imageFileName, new Image( Config.get( "imgPath" ) + imageFileName + ".png" ) );
         // carte non jouable ( filtre transparent gris )

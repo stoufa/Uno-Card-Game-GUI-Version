@@ -14,7 +14,7 @@ import main.gfx.Sprite;
 import main.io.Audio;
 
 /**
- * cette classe représente le joueur : ce qu'il a et ce qu'il peut faire, çàd ses propriétés et ses actions
+ * cette classe reprÃ©sente le joueur : ce qu'il a et ce qu'il peut faire, Ã§Ã d ses propriÃ©tÃ©s et ses actions
  * @author Stoufa
  *
  */
@@ -29,15 +29,15 @@ public abstract class Joueur extends GameObject {
      */
     public String   pseudo;
     /**
-     * la pioche : la pile des cartes où le joueur peut prendre des cartes dans le cas où il n'a pas de cartes jouables
+     * la pioche : la pile des cartes oÃ¹ le joueur peut prendre des cartes dans le cas oÃ¹ il n'a pas de cartes jouables
      */
     public Pioche   pioche;
     /**
-     * le talon : la pile des cartes où les joueurs dépose leurs cartes
+     * le talon : la pile des cartes oÃ¹ les joueurs dÃ©pose leurs cartes
      */
     public Talon    talon;
     /**
-     * la position du joueur sur l'écran : haut, bas, droite, gauche
+     * la position du joueur sur l'Ã©cran : haut, bas, droite, gauche
      */
     public Position position;
     /**
@@ -45,7 +45,7 @@ public abstract class Joueur extends GameObject {
      */
     public int      id;
     /**
-     * la carte jouée
+     * la carte jouÃ©e
      */
     public Carte    playedCard;
 
@@ -63,8 +63,8 @@ public abstract class Joueur extends GameObject {
     }
 
     /**
-     * permet de prender une carte de la pioche et l'ajouter à la main du joueur
-     * @return la carte tirée
+     * permet de prender une carte de la pioche et l'ajouter Ã  la main du joueur
+     * @return la carte tirÃ©e
      */
     public Carte prendreCarte() {
         if ( pioche.nbCartes() == 0 ) { // la pioche est vide !
@@ -85,28 +85,28 @@ public abstract class Joueur extends GameObject {
     }
 
     /**
-     * cette méthode permet d'afficher les cartes dans la main du joueur courant
+     * cette mÃ©thode permet d'afficher les cartes dans la main du joueur courant
      * 2 cas possibles :
      * 		(1) nombre de cartes paire : on a n cartes, n / 2 sont font des rotations de t, 2t, 3t, ...
-     * 		et les n / 2 font des rotation de -t, -2t, -3t, ... avec t l'angle de rotation qui va dépendre 
+     * 		et les n / 2 font des rotation de -t, -2t, -3t, ... avec t l'angle de rotation qui va dÃ©pendre 
      * 		du nombre de cartes dans la main
      * 		(2) nombre de cartes impaire : on a n + 1 cartes, la carte au milieu reste tel quelle sans rotation
-     * 		les n / 2 cartes à sa droite subissent des rotations de t, 2t, 3t, ..., (n / 2)t
-     * 		et les n / 2 cartes à sa gauche subissent des rotations de -t, -2t, -3t, ...., -(n / 2)t
+     * 		les n / 2 cartes Ã  sa droite subissent des rotations de t, 2t, 3t, ..., (n / 2)t
+     * 		et les n / 2 cartes Ã  sa gauche subissent des rotations de -t, -2t, -3t, ...., -(n / 2)t
      * @throws SlickException 
      */
     public void afficherMain( Graphics g ) throws SlickException {
         ArrayList<Carte> cartes = main.getCartes();
         int indiceCarteMilieu = cartes.size() / 2;
 
-        // le dessin / rendering des cartes doit être dans un sens fixé ( de gauche à droite )
-        // pour utiliser le sens inverse dans la détéction du click
+        // le dessin / rendering des cartes doit Ãªtre dans un sens fixÃ© ( de gauche Ã  droite )
+        // pour utiliser le sens inverse dans la dÃ©tÃ©ction du click
 
         float coefficientAngle;
         Carte carte;
 
         float initialX = JoueurPainter.getStartPosX( position ), initialY = JoueurPainter.getStartPosY( position );
-        // TODO : l'angle et l'offset doivent être proportionelles au nombre de cartes
+        // TODO : l'angle et l'offset doivent Ãªtre proportionelles au nombre de cartes
         float angle = 10;
         float offset = 30;
         if ( cartes.size() < 10 ) {
@@ -136,8 +136,8 @@ public abstract class Joueur extends GameObject {
              * Checking click events	n-1	-> 0
              */
             for ( int i = 0; i < cartes.size(); i++ ) {
-                // [ 0 .. indiceCarteMilieu - 1 ] les cartes à gauche
-                // [ indiceCarteMilieu .. cartes.size() - 1 ] les cartes à droite
+                // [ 0 .. indiceCarteMilieu - 1 ] les cartes Ã  gauche
+                // [ indiceCarteMilieu .. cartes.size() - 1 ] les cartes Ã  droite
 
                 carte = cartes.get( i ); // so we don't have a nullPointerException !
                 if ( carte == null ) {
@@ -176,7 +176,7 @@ public abstract class Joueur extends GameObject {
 
             coefficientAngle = -indiceCarteMilieu;
 
-            //for (int i = 0; i < indiceCarteMilieu; i++) {	// les cartes à gauche
+            //for (int i = 0; i < indiceCarteMilieu; i++) {	// les cartes Ã  gauche
             for ( int i = 0; i < cartes.size(); i++ ) {
 
                 carte = cartes.get( i );
@@ -254,7 +254,7 @@ public abstract class Joueur extends GameObject {
             
             coefficientAngle++;
             
-            for (int i = indiceCarteMilieu + 1; i < cartes.size(); i++) {	// les cartes à droite
+            for (int i = indiceCarteMilieu + 1; i < cartes.size(); i++) {	// les cartes Ã  droite
             
             	carte = cartes.get(i);
             	carte.jouable = carte.compatible(talon.sommet());
@@ -287,16 +287,16 @@ public abstract class Joueur extends GameObject {
     }
 
     /**
-     * contrairement à nbCartesJouables(), cette fonction doit être publique
+     * contrairement Ã  nbCartesJouables(), cette fonction doit Ãªtre publique
      * les autres joueurs peuvent voir combien vous avez de cartes dans la main
-     * @return le nombre de cartes que posséde le joueur dans sa main
+     * @return le nombre de cartes que possÃ©de le joueur dans sa main
      */
     public int nbCartes() {
         return main.nbCartes();
     }
 
     /**
-     * cette méthode permet d'afficher les cartes dans la main du joueur courant
+     * cette mÃ©thode permet d'afficher les cartes dans la main du joueur courant
      */
     public void afficherMain() {
         String str = "";
@@ -318,8 +318,8 @@ public abstract class Joueur extends GameObject {
     }
 
     /**
-     * cette méthode doit être privé ! seul le joueur doit connaître combien il a de cartes jouables !
-     * @return le nombre de cartes jouables çàd : compatibles avec le sommet du talon 
+     * cette mÃ©thode doit Ãªtre privÃ© ! seul le joueur doit connaÃ®tre combien il a de cartes jouables !
+     * @return le nombre de cartes jouables Ã§Ã d : compatibles avec le sommet du talon 
      */
     protected int nbCartesJouables() {
         int n = 0;
@@ -338,7 +338,7 @@ public abstract class Joueur extends GameObject {
     }
 
     /**
-     * permet d'attendre un peu pour que l'utilisateur arrive à lire le message affiché
+     * permet d'attendre un peu pour que l'utilisateur arrive Ã  lire le message affichÃ©
      */
     private void pause() {
         try {
@@ -358,7 +358,7 @@ public abstract class Joueur extends GameObject {
      * @throws SlickException 
      */
     public void jouerTour() throws InterruptedException, ClassNotFoundException, InstantiationException,
-            IllegalAccessException, UnsupportedLookAndFeelException, SlickException { // TODO : ajouter le cas où on a des doublons ! on doit se débarasser de toutes les occurences de la carte jouée !
+            IllegalAccessException, UnsupportedLookAndFeelException, SlickException { // TODO : ajouter le cas oÃ¹ on a des doublons ! on doit se dÃ©barasser de toutes les occurences de la carte jouÃ©e !
         playedCard = null;
         talon.afficherSommet();
         afficherMain(); // sur la console
@@ -367,13 +367,13 @@ public abstract class Joueur extends GameObject {
             Audio.playSound( "noPlayableCardsSound" );
             pause();
             Carte c = prendreCarte();
-            System.out.println( "La carte piochée est : " + c );
-            if ( !c.compatible( talon.sommet() ) ) { // la carte récemment piochée n'est pas compatible avec le sommet du talon
+            System.out.println( "La carte piochÃ©e est : " + c );
+            if ( !c.compatible( talon.sommet() ) ) { // la carte rÃ©cemment piochÃ©e n'est pas compatible avec le sommet du talon
                 System.out.println(
                         "Pas de chance ! vous n'avez encore pas de cartes jouables, vous devez passer le tour" );
                 System.out.println( "----------------------------------" );
                 Audio.playSound( "hardLuckSound" );
-                return; // passer le tour <=> quitter la méthode
+                return; // passer le tour <=> quitter la mÃ©thode
             } else {
                 afficherMain(); // sur la console
             }
@@ -394,7 +394,7 @@ public abstract class Joueur extends GameObject {
         String playerName = this.pseudo + " (" + nbCartes() + ")";
 
         Color oldColor = g.getColor();
-        int tour = Jeu.tour; // pour assurer que la valeur de Jeu.tour n'a pas été changé !
+        int tour = Jeu.tour; // pour assurer que la valeur de Jeu.tour n'a pas Ã©tÃ© changÃ© !
         if ( id == tour ) {
             // si c'est le joueur courant, on change la couleur de son nom pour indiquer le sens du jeu
             //oldColor = g.getColor();
@@ -449,7 +449,7 @@ public abstract class Joueur extends GameObject {
 }
 
 /**
- * cette classe va être utilisé en tant que <<Utility>> pour aider
+ * cette classe va Ãªtre utilisÃ© en tant que <<Utility>> pour aider
  * la classe Joueur dans le dessin / render du joueur
  * @author Stoufa
  *
@@ -467,7 +467,7 @@ class JoueurPainter {
         case HAUT:
             return Game.WIDTH / 2 - Carte.WIDTH / 2;
         case GAUCHE:
-            return 25 + offsetDroiteGauche; // 25 pour ne pas compter les bordures de la fenêtre
+            return 25 + offsetDroiteGauche; // 25 pour ne pas compter les bordures de la fenÃªtre
         }
         return 0;
     }

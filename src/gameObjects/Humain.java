@@ -14,7 +14,7 @@ import main.common.Debug;
 import main.io.Audio;
 
 /**
- * classe représentant un joueur humain
+ * classe reprÃ©sentant un joueur humain
  * @author Stoufa
  *
  */
@@ -25,8 +25,8 @@ public class Humain extends Joueur {
     }
 
     /**
-     * permet d'attendre un peu pour que l'utilisateur arrive à lire le message affiché
-     * utilisé dans la version console du jeu
+     * permet d'attendre un peu pour que l'utilisateur arrive Ã  lire le message affichÃ©
+     * utilisÃ© dans la version console du jeu
      */
     //	private void pause() {
     //		try {
@@ -52,20 +52,20 @@ public class Humain extends Joueur {
     //			if (carteAjouer.compatible(talon.sommet())) {
     //				carteJouable = true;
     //			} else {
-    //				System.out.println(carteAjouer + " ne peut pas être jouée sur " + talon.sommet());
+    //				System.out.println(carteAjouer + " ne peut pas Ãªtre jouÃ©e sur " + talon.sommet());
     //			}
     //		}
     //		
     //		Carte carte = main.retirer(num);
-    //		if (carte.getCouleur() == Couleur.NOIR) {	// TODO : ce test doit être déléguée à la classe Jeu
+    //		if (carte.getCouleur() == Couleur.NOIR) {	// TODO : ce test doit Ãªtre dÃ©lÃ©guÃ©e Ã  la classe Jeu
     //			// On doit demander une couleur au joueur
     //			System.out.println("Vous devez choisir une couleur");
     //			Couleur couleur = donnerCouleur();
-    //			// Si elle est de couleur noir, on est sûr qu'elle est spéciale !
+    //			// Si elle est de couleur noir, on est sÃ»r qu'elle est spÃ©ciale !
     //			((CarteSpecial) carte).setCouleur(couleur);
     //		}
     //		talon.empiler(carte);
-    //		System.out.println(pseudo + " a joué " + carte);
+    //		System.out.println(pseudo + " a jouÃ© " + carte);
     //	}
 
     /**
@@ -76,19 +76,19 @@ public class Humain extends Joueur {
     //		HashMap<Integer, Couleur> menu = new HashMap<>();
     //		int i = -1;
     //		for(Couleur couleur : Couleur.values()) {
-    //			if (couleur != Couleur.NOIR) {	// la couleur doit être différente de NOIR
+    //			if (couleur != Couleur.NOIR) {	// la couleur doit Ãªtre diffÃ©rente de NOIR
     //				i++;
     //				menu.put(i, couleur);
     //				System.out.println(i + ") " + couleur.getValeur());
     //			}
     //		}
-    //		int choix = IO.lireEntier(0, i);	// le choix doit être entre 0 et i
+    //		int choix = IO.lireEntier(0, i);	// le choix doit Ãªtre entre 0 et i
     //		return menu.get(choix);
     //	}
 
     /**
-     * cette méthode doit être privé ! seul le joueur doit connaître combien il a de cartes jouables !
-     * @return le nombre de cartes jouables çàd : compatibles avec le sommet du talon 
+     * cette mÃ©thode doit Ãªtre privÃ© ! seul le joueur doit connaÃ®tre combien il a de cartes jouables !
+     * @return le nombre de cartes jouables Ã§Ã d : compatibles avec le sommet du talon 
      */
     //	private int nbCartesJouables() {
     //		int n = 0;
@@ -114,8 +114,8 @@ public class Humain extends Joueur {
     }
 
     /**
-     * @return chaîne décrivant le joueur en cours
-     * le joueur est identifié par son pseudo
+     * @return chaÃ®ne dÃ©crivant le joueur en cours
+     * le joueur est identifiÃ© par son pseudo
      */
     @Override
     public String toString() {
@@ -171,7 +171,7 @@ public class Humain extends Joueur {
         Jeu.dialog.selectedColor = null; // reset chosen color value
         Jeu.dialog.setVisible( true ); // showing dialog
 
-        //Jeu.waitForDialogCountDownLatch = new CountDownLatch(1);	// réinitialisation du bloqueur
+        //Jeu.waitForDialogCountDownLatch = new CountDownLatch(1);	// rÃ©initialisation du bloqueur
         Debug.log( "Waiting for dialog..." );
         Jeu.waitForDialogCountDownLatch.await(); // hold
 
@@ -229,8 +229,8 @@ public class Humain extends Joueur {
         // Ici, on doit attendre le joueur jusqu'a qu'il clique sur une carte jouable !
         Debug.log( "Waiting for a click ..." );
 
-        Jeu.countDownLatch = new CountDownLatch( 1 ); // réinitialisation
-        Jeu.countDownLatch.await(); // DOWN : arrêter le jeu en attendant le clique !
+        Jeu.countDownLatch = new CountDownLatch( 1 ); // rÃ©initialisation
+        Jeu.countDownLatch.await(); // DOWN : arrÃªter le jeu en attendant le clique !
         // TODO : add blocking loop
         //		Jeu.clickReceived = false;
         //		while (!Jeu.clickReceived) {	// waiting for a click
@@ -247,7 +247,7 @@ public class Humain extends Joueur {
         //			if (carteAjouer.compatible(talon.sommet())) {
         //				carteJouable = true;
         //			} else {
-        //				System.out.println(carteAjouer + " ne peut pas être jouée sur " + talon.sommet());
+        //				System.out.println(carteAjouer + " ne peut pas Ãªtre jouÃ©e sur " + talon.sommet());
         //			}
         //		}
 
@@ -255,17 +255,17 @@ public class Humain extends Joueur {
         //Carte carte = this.playedCard;
 
         //Debug.log("line 398 : " + this.playedCard);
-        // main.nbCartes() > 1 : si la derniére carte jouée est une carte noire ! on n'a pas besoin
-        // de séléctionner une couleur ! il est gagnant quelque soit la couleur séléctionnée !
-        // main.nbCartes() > 1 et non pas main.nbCartes() > 0 car la carte jouée n'a pas encore été retiré de la main
-        if ( main.nbCartes() > 1 && playedCard.couleur == Couleur.NOIR ) { // TODO : ce test doit être déléguée à la classe Jeu
+        // main.nbCartes() > 1 : si la derniÃ©re carte jouÃ©e est une carte noire ! on n'a pas besoin
+        // de sÃ©lÃ©ctionner une couleur ! il est gagnant quelque soit la couleur sÃ©lÃ©ctionnÃ©e !
+        // main.nbCartes() > 1 et non pas main.nbCartes() > 0 car la carte jouÃ©e n'a pas encore Ã©tÃ© retirÃ© de la main
+        if ( main.nbCartes() > 1 && playedCard.couleur == Couleur.NOIR ) { // TODO : ce test doit Ãªtre dÃ©lÃ©guÃ©e Ã  la classe Jeu
             // On doit demander une couleur au joueur
             System.out.println( "Vous devez choisir une couleur" );
             Couleur couleur = donnerCouleur();
-            // Si elle est de couleur noir, on est sûr qu'elle est spéciale !
+            // Si elle est de couleur noir, on est sÃ»r qu'elle est spÃ©ciale !
             ( (CarteSpecial) playedCard ).setCouleur( couleur );
-            // Changer la couleur de l'arriére-plan
-            // la couleur va être mis à jour automatiquement dans la méthode render()
+            // Changer la couleur de l'arriÃ©re-plan
+            // la couleur va Ãªtre mis Ã  jour automatiquement dans la mÃ©thode render()
             //Jeu.changeBackgroundColorTo(couleur);
             if ( ( (CarteSpecial) playedCard ).symbole == Symbole.JOKER ) {
                 Audio.playSound( "wildSound" );
@@ -273,7 +273,7 @@ public class Humain extends Joueur {
         }
         main.retirer( playedCard ); // remove the card from the player's hand !
         talon.empiler( playedCard ); // add it to the discard pile
-        System.out.println( pseudo + " a joué " + playedCard );
+        System.out.println( pseudo + " a jouÃ© " + playedCard );
     }
 
     @Override
@@ -309,7 +309,7 @@ public class Humain extends Joueur {
 
                         // Puis on doit attendre si la carte est une carte noire !
 
-                        // si la carte choisie est une carte Noir ( On ne doit pas libérer le 
+                        // si la carte choisie est une carte Noir ( On ne doit pas libÃ©rer le 
                         // jeu jusqu'a ce que le joueur choisisse une couleur )
                         //						if (playedCard.couleur != Couleur.NOIR) {
                         //						}

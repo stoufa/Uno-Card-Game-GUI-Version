@@ -36,7 +36,7 @@ public abstract class Carte extends GameObject {
     public Image            image = null;
 
     /**
-     * carte jouable ou pas, c.-à-d. compatible avec la carte du sommet du talon ou pas
+     * carte jouable ou pas, c.-Ã -d. compatible avec la carte du sommet du talon ou pas
      */
     public boolean          jouable;
 
@@ -60,14 +60,14 @@ public abstract class Carte extends GameObject {
 
     /**
      * @param carte : la carte qu'on voit sur le sommet du talon
-     * @return true : Si la carte courante peut être déposée sur l'objet ( carte )
+     * @return true : Si la carte courante peut Ãªtre dÃ©posÃ©e sur l'objet ( carte )
      * @return false : sinon
-     * abstraite carte le méchanisme de comparaison différe entre la carte chiffre et la carte spéciale
+     * abstraite carte le mÃ©chanisme de comparaison diffÃ©re entre la carte chiffre et la carte spÃ©ciale
      */
     public abstract boolean compatible( Carte carte );
 
     /**
-     * la méthode qui permet d'afficher la carte sur l'écran
+     * la mÃ©thode qui permet d'afficher la carte sur l'Ã©cran
      * @throws SlickException 
      */
     @Override

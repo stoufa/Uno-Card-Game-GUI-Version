@@ -3,7 +3,7 @@ package main.gameObjects;
 import java.util.ArrayList;
 
 /**
- * cette classe représente la main de chaque joueur
+ * cette classe reprÃ©sente la main de chaque joueur
  * @author Stoufa
  *
  */
@@ -22,8 +22,8 @@ public class Main {
     }
 
     /**
-     * permet d'ajouter une carte à la main
-     * @param carte : la carte à ajouter
+     * permet d'ajouter une carte Å• la main
+     * @param carte : la carte Å• ajouter
      */
     public void ajouter( Carte carte ) {
         cartes.add( carte );
@@ -31,8 +31,8 @@ public class Main {
 
     /**
      * permet de retirer une carte de la main
-     * @param num : l'indice de la carte à retirer dans la liste
-     * @return la carte retirée
+     * @param num : l'indice de la carte Å• retirer dans la liste
+     * @return la carte retirÃ©e
      */
     public Carte retirer( int num ) {
         return cartes.remove( num );

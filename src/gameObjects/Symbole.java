@@ -1,7 +1,7 @@
 package main.gameObjects;
 
 /**
- * énumération représentant les différents symboles que les cartes du jeu peuvent avoir
+ * Ã©numÃ©ration reprÃ©sentant les diffÃ©rents symboles que les cartes du jeu peuvent avoir
  * @author Stoufa
  *
  */
@@ -10,8 +10,8 @@ public enum Symbole {
     PASSER( "Passer" ), INVERSER( "Inverser" ), PLUS2( "+2" ), PLUS4( "+4" ), JOKER( "Joker" );
 
     /**
-     * la valeur du symbole, en fait c'est une chaîne de caractères contenant le nom du symbole
-     * utile dans la méthode toString()
+     * la valeur du symbole, en fait c'est une chaÃ®ne de caractÃ¨res contenant le nom du symbole
+     * utile dans la mÃ©thode toString()
      */
     private String valeur;
 

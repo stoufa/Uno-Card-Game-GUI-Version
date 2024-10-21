@@ -10,18 +10,18 @@ import main.common.Debug;
 import main.io.Audio;
 
 /**
- * classe qui représente un joueur non-humain
- * On peut enrichir cette classe en implémentant des stratégies de jeu différentes : 
- * stratégie aufencife ( jouer les cartes +2 et +4 en premier ),
- * défencif ( jouer les cartes +2 et +4 en dernier ),
+ * classe qui reprÃ©sente un joueur non-humain
+ * On peut enrichir cette classe en implÃ©mentant des stratÃ©gies de jeu diffÃ©rentes : 
+ * stratÃ©gie aufencife ( jouer les cartes +2 et +4 en premier ),
+ * dÃ©fencif ( jouer les cartes +2 et +4 en dernier ),
  * garder la couleur courante,
- * garder les cartes noirs à la fin, ....
+ * garder les cartes noirs Ã  la fin, ....
  * @author Stoufa
  *
  */
 public class Bot extends Joueur {
 
-    Random random = new Random(); // utilisé pour simuler le comportement aléatoire du joueur
+    Random random = new Random(); // utilisÃ© pour simuler le comportement alÃ©atoire du joueur
 
     public Bot( String pseudo, Pioche pioche, Talon talon ) {
         super( pseudo, pioche, talon );
@@ -75,10 +75,10 @@ public class Bot extends Joueur {
             // On doit demander une couleur au joueur
             Debug.log( "Bot doit choisir une couleur..." );
             Couleur couleur = donnerCouleur();
-            // Si elle est de couleur noir, on est sûr qu'elle est spéciale !
+            // Si elle est de couleur noir, on est sÃ»r qu'elle est spÃ©ciale !
             ( (CarteSpecial) playedCard ).setCouleur( couleur );
-            // Changer la couleur de l'arriére-plan
-            // la couleur va être mis à jour automatiquement dans la méthode render()
+            // Changer la couleur de l'arriÃ©re-plan
+            // la couleur va Ãªtre mis Ã  jour automatiquement dans la mÃ©thode render()
             //Jeu.changeBackgroundColorTo(couleur);
             if ( ( (CarteSpecial) playedCard ).symbole == Symbole.JOKER ) {
                 Audio.playSound( "wildSound" );
@@ -87,12 +87,12 @@ public class Bot extends Joueur {
 
         main.retirer( playedCard ); // remove the card from the player's hand !
         talon.empiler( playedCard ); // add it to the discard pile
-        Debug.log( pseudo + " a joué " + playedCard );
+        Debug.log( pseudo + " a jouÃ© " + playedCard );
     }
 
     /**
-     * @return chaîne décrivant le joueur en cours
-     * le joueur est identifié par son pseudo
+     * @return chaÃ®ne dÃ©crivant le joueur en cours
+     * le joueur est identifiÃ© par son pseudo
      */
     @Override
     public String toString() {

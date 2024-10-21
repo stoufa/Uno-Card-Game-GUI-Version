@@ -12,29 +12,29 @@ import main.GameRunnable;
 import main.gameObjects.Jeu;
 
 /**
- * l'état ( State ) du jeu
+ * l'Ã©tat ( State ) du jeu
  * @author Stoufa
  */
 public class GameState extends BasicGameState {
     /**
-     * identificateur de l'état ( State )
+     * identificateur de l'Ã©tat ( State )
      */
     public static int stateID;
     /**
-     * objet représentant le jeu
+     * objet reprÃ©sentant le jeu
      */
     Jeu               jeu = null;
 
     /**
      * constructeur
-     * @param stateID identificateur de l'état ( state )
+     * @param stateID identificateur de l'Ã©tat ( state )
      */
     public GameState( int stateID ) {
         GameState.stateID = stateID;
     }
 
     /**
-     * initialiser l'état ( state )
+     * initialiser l'Ã©tat ( state )
      */
     @Override
     public void init( GameContainer gc, StateBasedGame sbg ) throws SlickException {
@@ -44,26 +44,26 @@ public class GameState extends BasicGameState {
                 | UnsupportedLookAndFeelException e ) {
             e.printStackTrace();
         }
-        // démarrage du jeu dans un processus ( Thread ) à part
-        // on aura besoin de bloquer la logique du jeu jusqu'à obtenir
+        // dÃ©marrage du jeu dans un processus ( Thread ) Ã  part
+        // on aura besoin de bloquer la logique du jeu jusqu'Ã  obtenir
         // un clique sur une carte
         Thread thread = new Thread( new GameRunnable( jeu, sbg ) );
         thread.start();
     }
 
     /**
-     * delta : temps en millisecondes passé depuis l'appel précédant de la méthode update()
-     * par exemple : 2 FPS -> 2 mises à jour par seconde => delta = 500
-     * chaque 500 milli-secondes update() est invoquée
+     * delta : temps en millisecondes passÃ© depuis l'appel prÃ©cÃ©dant de la mÃ©thode update()
+     * par exemple : 2 FPS -> 2 mises Ã  jour par seconde => delta = 500
+     * chaque 500 milli-secondes update() est invoquÃ©e
      * 60 FPS => 1 second / 60 => 1000 ms / 60 = 16.666..
      */
     @Override
     public void update( GameContainer container, StateBasedGame sbg, int delta ) throws SlickException {
-        jeu.update( container ); // mettre à jour le jeu
+        jeu.update( container ); // mettre Ã  jour le jeu
     }
 
     /**
-     * dessiner la logique de l'état ( state ) du jeu
+     * dessiner la logique de l'Ã©tat ( state ) du jeu
      */
     @Override
     public void render( GameContainer container, StateBasedGame arg1, Graphics g ) throws SlickException {
@@ -71,9 +71,9 @@ public class GameState extends BasicGameState {
     }
 
     /**
-     * retourne l'identificateur de l'état
-     * chaque état ( state ) posséde un identificateur ID unique
-     * cet ID est utile dans la commutation entre les différents états du jeu
+     * retourne l'identificateur de l'Ã©tat
+     * chaque Ã©tat ( state ) possÃ©de un identificateur ID unique
+     * cet ID est utile dans la commutation entre les diffÃ©rents Ã©tats du jeu
      */
     @Override
     public int getID() {

@@ -10,16 +10,16 @@ import main.common.Config;
 import main.gfx.Sprite;
 
 /**
- * classe représentant la pioche du jeu
+ * classe reprÃ©sentant la pioche du jeu
  * @author Stoufa
  *
  */
 public class Pioche extends Pile {
-    // TODO : on doit traiter le cas où la pioche devient vide et on doit prendre une carte
-    // dans ce cas, on a besoin de mélanger le talon ( sauf le sommet ) et le déposer dans la pioche
+    // TODO : on doit traiter le cas oÃ¹ la pioche devient vide et on doit prendre une carte
+    // dans ce cas, on a besoin de mÃ©langer le talon ( sauf le sommet ) et le dÃ©poser dans la pioche
 
     /**
-     * constructeur : permet de construire la pioche et d'y insérer toutes les cartes nécéssaires
+     * constructeur : permet de construire la pioche et d'y insÃ©rer toutes les cartes nÃ©cÃ©ssaires
      * @throws SlickException 
      */
     public Pioche() throws SlickException {
@@ -29,7 +29,7 @@ public class Pioche extends Pile {
                     ajouter( new CarteSpecial( Couleur.NOIR, Symbole.JOKER ) );
                     ajouter( new CarteSpecial( Couleur.NOIR, Symbole.PLUS4 ) );
                 }
-                continue; // toutes les cartes noirs sont ajoutées, on passe à la couleur suivante
+                continue; // toutes les cartes noirs sont ajoutÃ©es, on passe Ã  la couleur suivante
             }
             // 1 Carte 0 pour chaque couleur
             ajouter( new CarteChiffre( couleur, 0 ) );
@@ -50,18 +50,18 @@ public class Pioche extends Pile {
     }
 
     /**
-     * Cette méthode est utilisée pour retourner une carte aléatoirement dans la pioche
-     * dans le cas où la premiére carte est une carte spéciale ( au début du jeu )
+     * Cette mÃ©thode est utilisÃ©e pour retourner une carte alÃ©atoirement dans la pioche
+     * dans le cas oÃ¹ la premiÃ©re carte est une carte spÃ©ciale ( au dÃ©but du jeu )
      * @param carte
      */
     private void retournerCarte( Carte carte ) {
-        int i = rand.nextInt( cartes.size() ); // Entier aléatoire entre 0 et cartes.size() - 1
+        int i = rand.nextInt( cartes.size() ); // Entier alÃ©atoire entre 0 et cartes.size() - 1
         cartes.add( i, carte );
     }
 
     /**
-     * cette méthode est appelée par le talon pour qu'elle lui retourne sa premiére carte
-     * la carte ne doit pas être spéciale
+     * cette mÃ©thode est appelÃ©e par le talon pour qu'elle lui retourne sa premiÃ©re carte
+     * la carte ne doit pas Ãªtre spÃ©ciale
      * @return
      */
     public Carte premiereCarteTalon() {
@@ -69,10 +69,10 @@ public class Pioche extends Pile {
         while ( true ) {
             carte = depiler(); // Retirer une carte
             //Debug.log(carte.toString());
-            if ( carte instanceof CarteSpecial ) { // C'est une carte spéciale
-                // Il faut dans ce cas la rajouter aléatoirement dans la pioche
+            if ( carte instanceof CarteSpecial ) { // C'est une carte spÃ©ciale
+                // Il faut dans ce cas la rajouter alÃ©atoirement dans la pioche
                 retournerCarte( carte );
-                //System.out.println("Oops carte spécial , ...");
+                //System.out.println("Oops carte spÃ©cial , ...");
                 //System.out.println(carte);
             } else {
                 return carte;
@@ -81,7 +81,7 @@ public class Pioche extends Pile {
     }
 
     /**
-     * la méthode responsable d'afficher la pioche sur l'écran
+     * la mÃ©thode responsable d'afficher la pioche sur l'Ã©cran
      * @param g
      * @throws SlickException 
      */
@@ -100,7 +100,7 @@ public class Pioche extends Pile {
         carteSommet.angle = 0;
         carteSommet.updateBounds();
 
-        // Pour voir à peu prés combien y en a de cartes
+        // Pour voir Ã  peu prÃ©s combien y en a de cartes
         float yVal = carteSommet.y;
         for ( int i = 0; i < cartes.size(); ++i ) {
             g.drawImage( image, carteSommet.x, yVal );
@@ -117,7 +117,7 @@ public class Pioche extends Pile {
                 Game.WIDTH / 2 + Integer.parseInt( Config.get( "offsetPiocheTalon" ) )
                         - g.getFont().getWidth( str ) / 2,
                 // a little bit above the last card
-                yVal - offset // pour que ça soit prés de la carte du sommet de la pile
+                yVal - offset // pour que Ã§a soit prÃ©s de la carte du sommet de la pile
         //Game.HEIGHT / 2 - Carte.HEIGHT / 2 - offset
         );
     }

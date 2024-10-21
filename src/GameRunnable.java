@@ -5,19 +5,19 @@ import org.newdawn.slick.state.StateBasedGame;
 import main.gameObjects.Jeu;
 
 /**
- * La classe qui va contenir le code à éxécuter par le processus / Thread lancée
+ * La classe qui va contenir le code Ã  Ã©xÃ©cuter par le processus / Thread lancÃ©e
  * du processus principale ( lancement du jeu )
  * @author Stoufa
  *
  */
 public class GameRunnable implements Runnable {
     /**
-     * objet représentant le jeu
+     * objet reprÃ©sentant le jeu
      */
     Jeu            jeu = null;
     /**
-     * l'orchestrateur des états du jeu
-     * avec cet objet on peut changer d'un état à un autre
+     * l'orchestrateur des Ã©tats du jeu
+     * avec cet objet on peut changer d'un Ã©tat Ã  un autre
      */
     StateBasedGame sbg = null;
 
@@ -32,7 +32,7 @@ public class GameRunnable implements Runnable {
     }
 
     /**
-     * le code à éxécuter par le Thread
+     * le code Ã  Ã©xÃ©cuter par le Thread
      */
     @Override
     public void run() {

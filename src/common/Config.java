@@ -21,33 +21,33 @@ public class Config {
      */
     private static final String                  configFilePath = "config.ini";
     /**
-     * contient la configuration par défaut du jeu
+     * contient la configuration par dÃ©faut du jeu
      */
     private static final Properties              defaults       = new Properties();
     /**
      * contient la configuration du jeu
-     * la configuration est lue une seule fois du fichier et tout au long du jeu à 
+     * la configuration est lue une seule fois du fichier et tout au long du jeu Ã  
      * partir de cette table de hachage
      */
     private static final HashMap<String, String> values         = new HashMap<>();
     /**
-     * drapeau ( flag ) utilisé pour s'assurer que la méthode init() à été invoqué une seule fois
+     * drapeau ( flag ) utilisÃ© pour s'assurer que la mÃ©thode init() Ã  Ã©tÃ© invoquÃ© une seule fois
      */
     private static boolean                       isInitialized  = false;
     /**
-     * Objet utilisé pour lire ( parser ) le fichier de configuration
+     * Objet utilisÃ© pour lire ( parser ) le fichier de configuration
      */
     static Properties                            p              = new Properties();
 
     /**
-     * méthode d'initialisation, initialise les valeurs par défaut
+     * mÃ©thode d'initialisation, initialise les valeurs par dÃ©faut
      */
     private static void init() {
-        if ( isInitialized ) { // si la méthode à été déja invoquée ...
+        if ( isInitialized ) { // si la mÃ©thode Ã  Ã©tÃ© dÃ©ja invoquÃ©e ...
             return; // ... quitter
         }
-        isInitialized = true; // sinon, on marque que c'est invoquée pour ne pas l'invoquer une 2éme fois
-        // les configurations par défauts ( utiles quand on ne trouve pas les configurations dans le fichier )
+        isInitialized = true; // sinon, on marque que c'est invoquÃ©e pour ne pas l'invoquer une 2Ã©me fois
+        // les configurations par dÃ©fauts ( utiles quand on ne trouve pas les configurations dans le fichier )
         defaults.put( "nbJoueurs", "2" );
         //defaults.put("width",					"800");
         defaults.put( "title", "UNO" );
@@ -89,16 +89,16 @@ public class Config {
     }
 
     /**
-     * utilisée pour avoir une valeur du fichier de configuration
-     * @param key nom du paramétre demandé
-     * @return la valeur du paramétre demandé
+     * utilisÃ©e pour avoir une valeur du fichier de configuration
+     * @param key nom du paramÃ©tre demandÃ©
+     * @return la valeur du paramÃ©tre demandÃ©
      */
     public static String get( String key ) {
         return values.get( key );
     }
 
     /**
-     * permet de charger les configurations pour qu'elles soient utilisées dans le jeu
+     * permet de charger les configurations pour qu'elles soient utilisÃ©es dans le jeu
      */
     public static void load() {
         try {
@@ -109,11 +109,11 @@ public class Config {
                 String key = (String) e.nextElement();
                 values.put( key, p.getProperty( key ) );
             }
-            // s'il y on a des configurations manquantes, on met les configurations par défaut
+            // s'il y on a des configurations manquantes, on met les configurations par dÃ©faut
             e = defaults.propertyNames();
             while ( e.hasMoreElements() ) {
                 String key = (String) e.nextElement();
-                if ( !values.containsKey( key ) ) { // si le nom du paramétre n'est pas trouvé dans la liste des configurations ...
+                if ( !values.containsKey( key ) ) { // si le nom du paramÃ©tre n'est pas trouvÃ© dans la liste des configurations ...
                     // ... on l'ajoute
                     values.put( key, defaults.getProperty( key ) );
                 }

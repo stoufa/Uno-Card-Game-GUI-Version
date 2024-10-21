@@ -19,8 +19,8 @@ import javax.swing.border.EmptyBorder;
 import main.gameObjects.Jeu;
 
 /**
- * Classe représentant la fenêtre de choix de couleurs
- * ( Créée à l'aide de WindowBuilder )
+ * Classe reprÃ©sentant la fenÃªtre de choix de couleurs
+ * ( CrÃ©Ã©e Ã  l'aide de WindowBuilder )
  * @author Stoufa
  *
  */
@@ -49,7 +49,7 @@ public class GetColorDialog extends JDialog {
     }
 
     private void createEvents() {
-        // ajout des événements des boutons
+        // ajout des Ã©vÃ©nements des boutons
         btnBleu.addActionListener( new GetColorDialogBtnActionListener( this, "Bleu" ) );
         btnJaune.addActionListener( new GetColorDialogBtnActionListener( this, "Jaune" ) );
         btnRouge.addActionListener( new GetColorDialogBtnActionListener( this, "Rouge" ) );
@@ -59,8 +59,8 @@ public class GetColorDialog extends JDialog {
     private void initComponents() throws ClassNotFoundException, InstantiationException, IllegalAccessException,
             UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
-        setDefaultCloseOperation( WindowConstants.DO_NOTHING_ON_CLOSE ); // pour empêcher la fermeture de la fenêtre sans choisir une couleur
-        //setVisible(true);	// Ivisible par défaut
+        setDefaultCloseOperation( WindowConstants.DO_NOTHING_ON_CLOSE ); // pour empÃªcher la fermeture de la fenÃªtre sans choisir une couleur
+        //setVisible(true);	// Ivisible par dÃ©faut
         addWindowListener( new WindowListener() {
             @Override
             public void windowOpened( WindowEvent e ) {
@@ -83,8 +83,8 @@ public class GetColorDialog extends JDialog {
             }
 
             @Override
-            public void windowClosed( WindowEvent e ) { // quand la fenêtre se ferme
-                Jeu.waitForDialogCountDownLatch.countDown(); // libérer le sémaphore
+            public void windowClosed( WindowEvent e ) { // quand la fenÃªtre se ferme
+                Jeu.waitForDialogCountDownLatch.countDown(); // libÃ©rer le sÃ©maphore
             }
 
             @Override

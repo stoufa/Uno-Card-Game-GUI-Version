@@ -16,7 +16,7 @@ import main.common.Config;
 public class Audio {
 
     /**
-     * son de l'arriére-plan
+     * son de l'arriÃ©re-plan
      */
     private static Music                  music;
     /**
@@ -29,7 +29,7 @@ public class Audio {
      * @throws SlickException exception de la librairie slick2d
      */
     public static void load() throws SlickException {
-        if ( soundEnabled ) { // si les sons sont autorisés
+        if ( soundEnabled ) { // si les sons sont autorisÃ©s
             String soundNames[] = {
                     "clickSound", "invalidClickSound", "unoSound",
                     "skipSound", "reverseSound", "plus2Sound",
@@ -46,13 +46,13 @@ public class Audio {
     }
 
     /**
-     * musique autorisée ?
+     * musique autorisÃ©e ?
      * true -> oui
      * false -> non
      */
     public static boolean musicEnabled = true;
     /**
-     * sons autorisées ?
+     * sons autorisÃ©es ?
      * true -> oui
      * false -> non
      */
@@ -64,7 +64,7 @@ public class Audio {
      * @throws SlickException exception de la librairie slick2d
      */
     public static void playSound( String soundName ) throws SlickException {
-        if ( soundEnabled ) { // si les sons sont autorisés
+        if ( soundEnabled ) { // si les sons sont autorisÃ©s
             sounds.get( soundName ).play(); // jouer le son
         }
     }
@@ -74,18 +74,18 @@ public class Audio {
      * @throws SlickException exception de la librairie slick2d
      */
     public static void playMusic() throws SlickException {
-        if ( musicEnabled ) { // si la musique est autorisée
+        if ( musicEnabled ) { // si la musique est autorisÃ©e
             music.loop(); // jouer la musique en boucle
         }
     }
 
     /**
-     * permet d'arrêtre la musique
+     * permet d'arrÃªtre la musique
      * @throws SlickException exception de la librairie slick2d
      */
     public static void stopMusic() throws SlickException {
-        if ( musicEnabled ) { // si la musique est autorisée
-            music.stop(); // arrêtre la musique
+        if ( musicEnabled ) { // si la musique est autorisÃ©e
+            music.stop(); // arrÃªtre la musique
         }
     }
 }

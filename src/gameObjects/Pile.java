@@ -3,20 +3,20 @@ package main.gameObjects;
 import java.util.Random;
 
 /**
- * cette classe présente les fonctionnalités communes entre la pioche et le talon
+ * cette classe prÃ©sente les fonctionnalitÃ©s communes entre la pioche et le talon
  * @author Stoufa
  *
  */
 public class Pile extends Main {
 
     /**
-     * générateur de valeurs aléatoires
+     * gÃ©nÃ©rateur de valeurs alÃ©atoires
      */
     protected Random rand = new Random();
 
     /**
-     * permet de dépiler le sommet de la pile
-     * @return la carte supprimée
+     * permet de dÃ©piler le sommet de la pile
+     * @return la carte supprimÃ©e
      */
     public Carte depiler() {
         return cartes.remove( 0 );
@@ -24,24 +24,24 @@ public class Pile extends Main {
 
     /**
      * permet d'empiler une carte
-     * @param carte : la carte à empiler
+     * @param carte : la carte Ã  empiler
      */
     public void empiler( Carte carte ) {
         cartes.add( 0, carte );
     }
 
     /**
-     * permet de mélanger la pile (shuffle) en utilisant l'algorithme : Mélange de Fisher-Yates
+     * permet de mÃ©langer la pile (shuffle) en utilisant l'algorithme : MÃ©lange de Fisher-Yates
      * @see https://fr.wikipedia.org/wiki/M%C3%A9lange_de_Fisher-Yates
-     * académiquement parlant, on ne peut pas mélanger une pile ! mais dans ce contexte, la pile n'est
-     * pas une structure FIFO ( First In First Out ) ordinaire, on peut la mélanger
-     * c'est une méthode commune entre les classes Pioche et Talon
+     * acadÃ©miquement parlant, on ne peut pas mÃ©langer une pile ! mais dans ce contexte, la pile n'est
+     * pas une structure FIFO ( First In First Out ) ordinaire, on peut la mÃ©langer
+     * c'est une mÃ©thode commune entre les classes Pioche et Talon
      */
     public void melanger() {
         for ( int i = cartes.size() - 1; i > 0; i-- ) {
-            // Permuter une carte aléatoire entre la première
-            // et la dernière carte de la boucle
-            int pick = rand.nextInt( i ); // entier aléatoire entre 0 et i - 1
+            // Permuter une carte alÃ©atoire entre la premiÃ¨re
+            // et la derniÃ¨re carte de la boucle
+            int pick = rand.nextInt( i ); // entier alÃ©atoire entre 0 et i - 1
             Carte randCard = cartes.get( pick );
             Carte lastCard = cartes.get( i );
             cartes.set( i, randCard );
@@ -50,7 +50,7 @@ public class Pile extends Main {
     }
 
     /**
-     * @return une chaîne de caratères représentant la pile courante
+     * @return une chaÃ®ne de caratÃ¨res reprÃ©sentant la pile courante
      */
     @Override
     public String toString() {
